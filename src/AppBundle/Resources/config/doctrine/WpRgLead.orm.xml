@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\WpRgLead" table="wp_rg_lead">
+    <indexes>
+      <index name="form_id" columns="form_id"/>
+      <index name="status" columns="status"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="formId" type="integer" column="form_id" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="postId" type="bigint" column="post_id" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="dateCreated" type="datetime" column="date_created" nullable="false"/>
+    <field name="isStarred" type="boolean" column="is_starred" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="isRead" type="boolean" column="is_read" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="ip" type="string" column="ip" length="39" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="sourceUrl" type="string" column="source_url" length="200" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default"/>
+      </options>
+    </field>
+    <field name="userAgent" type="string" column="user_agent" length="250" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default"/>
+      </options>
+    </field>
+    <field name="currency" type="string" column="currency" length="5" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="paymentStatus" type="string" column="payment_status" length="15" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="paymentDate" type="datetime" column="payment_date" nullable="true"/>
+    <field name="paymentAmount" type="decimal" column="payment_amount" precision="19" scale="2" nullable="true"/>
+    <field name="paymentMethod" type="string" column="payment_method" length="30" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="transactionId" type="string" column="transaction_id" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="isFulfilled" type="boolean" column="is_fulfilled" nullable="true"/>
+    <field name="createdBy" type="bigint" column="created_by" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="transactionType" type="boolean" column="transaction_type" nullable="true"/>
+    <field name="status" type="string" column="status" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">active</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>
